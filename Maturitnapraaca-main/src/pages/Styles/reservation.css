@@ -1,0 +1,133 @@
+/* reservation.css - Styles for the reservation page */
+
+/* Container and general styles */
+.container {
+    font-family: 'Arial', sans-serif;
+    color: #fa9d22;
+}
+
+/* Calendar base styles */
+.react-calendar {
+    width: 100%;
+    background-color: #0F172B !important;
+    border: 1px solid #fa9d22 !important;
+}
+
+/* Calendar navigation buttons */
+.react-calendar__navigation button {
+    background-color: #232430 !important; /* Dark gray background */
+    color: #ffffff !important; /* White text color */
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+    background-color: #0F172B !important; /* Dark blue background on hover/focus */
+    color: #fa9d22 !important; /* Yellow text color on hover/focus */
+}
+
+/* Calendar weekdays (Mon, Tue, Wed, ...) */
+.react-calendar__month-view__weekdays {
+    text-transform: uppercase;
+    color: #fa9d22 !important;
+}
+
+.react-calendar__month-view__weekdays__weekday abbr {
+    text-decoration: none !important;
+    color: #fa9d22;
+}
+
+/* Calendar days (1, 2, 3, ...) */
+.react-calendar__month-view__days__day--weekend,
+.react-calendar__month-view__days__day {
+    color: #fa9d22 !important;
+}
+
+/* Calendar tiles */
+.react-calendar__tile {
+    background-color: #0F172B !important;
+    color: #fa9d22 !important;
+    border-radius: 5px !important;
+}
+
+/* Hover state for calendar tiles */
+.react-calendar__tile:enabled:hover {
+    background-color: #fa9d22 !important; /* Yellow background */
+    color: #0F172B !important; /* Dark blue text color */
+}
+
+/* Active (selected) date tiles */
+.react-calendar__tile--active {
+    background-color: #fa9d22 !important;
+    color: #0F172B !important;
+    font-weight: bold !important;
+}
+
+/* Today's date tile */
+.react-calendar__tile--now {
+    background-color: #0F172B !important;
+    color: #ffffff !important; /* White text color for today's date */
+    font-weight: bold !important;
+}
+
+/* Tiles representing a range */
+.react-calendar__tile--range {
+    background-color: #0F172B !important;
+    color: #f0e68c !important;
+}
+
+/* Start and end of a range */
+.react-calendar__tile--rangeStart,
+.react-calendar__tile--rangeEnd {
+    background-color: #fa9d22 !important;
+    color: #0F172B !important;
+}
+
+/* Disabled tiles */
+.react-calendar__tile--disabled {
+    background-color: #0F172B !important;
+    color: #66788a !important;
+}
+
+/* Input and select form controls */
+.form-control {
+    background-color: #0F172B !important;
+    border: 1px solid #fa9d22 !important;
+    color: #fa9d22 !important;
+}
+
+.form-control:focus {
+    border-color: #e2be6a !important;
+    box-shadow: none !important;
+}
+
+/* Labels for form controls */
+.form-group label {
+    color: #fa9d22 !important;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #0F172B !important;
+    border: none !important;
+    color: #fa9d22 !important;
+    padding: 10px 20px; /* Larger padding for a better look */
+    font-size: 1rem; /* Adjust font size as needed */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: background-color 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #fa9d22 !important; /* Change color on hover/focus */
+    color: #0F172B !important;
+}
+
+/* Alert messages */
+.alert-info {
+    background-color: #0F172B !important;
+    color: #f0e68c !important;
+    border: none !important;
+}
+
+/* Ensure this file is imported into your component after the default react-calendar styles */

@@ -1,0 +1,58 @@
+/* Custom styles to override Bootstrap styles */
+.form-control {
+  background-color: neon-purple;
+  color: white;
+}
+
+.btn-success {
+  background-color: neon-green;
+  border-color: neon-green;
+  color: white;
+}
+
+.dmenu {
+  display: flex;
+}
+
+.menucontent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top:auto;
+}
+
+.menuitem {
+  margin: 10px 0;
+}
+
+.PICS {
+  margin: 10px 0;
+}
+
+/* Add styles for the navbar */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px; /* Adjust the margin for the navbar items */
+}
+
+.navbar-link {
+  margin: 10px 0;
+}
+
+.login-container{
+  display: flex;
+}
+
+/* Overriding Bootstrap's hover effect for list group items */
+.list-group-item:hover {
+  background-color: #FA9D22 !important; /* Updated hover background color to yellow */
+  color: #0F172B !important; /* Updated hover text color to dark blue */
+}

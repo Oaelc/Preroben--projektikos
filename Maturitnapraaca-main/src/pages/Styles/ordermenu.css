@@ -1,0 +1,71 @@
+/* ordermenu.css - Full Code with Hover Animations */
+
+/* Container for menu window */
+.container.menuWindow {
+    background-color: #232430; /* Dark blue color */
+    border-radius: 5px; /* Rounded corners */
+    padding: 1rem; /* Padding */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    color: #FA9D22; /* Yellow color for text */
+    transition: box-shadow 0.2s ease-in-out; /* Smooth shadow transition */
+}
+
+/* Header styles */
+h3 {
+    font-size: 2rem; /* Header size */
+    font-weight: bold; /* Bold font */
+    color: #FA9D22; /* Yellow color */
+    text-align: center; /* Centered text */
+    margin-bottom: 1rem; /* Spacing below header */
+}
+
+/* Total sum styles */
+.total-sum p {
+    font-weight: bold; /* Bold font for total */
+    color: #FA9D22; /* Bright yellow for the word 'Total' */
+}
+
+/* Total price styles */
+.total-sum .text-success {
+    color: #28a745; /* Visible green color for price number */
+}
+
+/* List item styles */
+.list-group-item {
+    background-color: #0F172B; /* Dark blue color */
+    color: #FA9D22; /* Yellow color for text */
+    border: none; /* No border */
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; /* Transition for hover */
+}
+
+/* List item hover effect */
+.list-group-item:hover {
+    background-color: #1A233A; /* Slightly lighter blue for hover effect */
+    color: #FFD700; /* Change text color slightly on hover for better visibility */
+}
+
+/* Button styles */
+.btn-danger, .btn-success {
+    border: none; /* No border */
+    margin: 5px; /* Spacing around button */
+    transition: transform 0.2s ease-in-out; /* Transition for click effect */
+}
+
+/* Hover effect for buttons */
+.btn-danger:hover, .btn-success:hover {
+    transform: scale(1.05); /* Slightly enlarge buttons on hover */
+}
+
+/* Button 'Add' styles */
+.btn-success {
+    background-color: #5cb85c; /* Green color for add button */
+    /* No color change on hover as per your instruction */
+}
+
+/* Button 'Delete' styles */
+.btn-danger {
+    background-color: #a94442; /* Red color for delete button */
+    /* No color change on hover as per your instruction */
+}
+
+/* Add any additional styles as needed */

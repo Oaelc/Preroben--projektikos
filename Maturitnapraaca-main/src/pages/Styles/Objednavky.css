@@ -1,0 +1,44 @@
+/* Objednavky.css - Full updated styles with all modifications */
+
+/* Overall table styling */
+.table {
+  background-color: #0F172B !important; /* Dark blue background for the whole table */
+  border-collapse: collapse !important; /* Collapse borders to remove space between cells */
+}
+
+/* Styling for table text */
+.table td,
+.table th {
+  color: #FA9D22 !important; /* Updated yellow color for text */
+  border: 1px solid #0F172B !important; /* Make the border the same color as the cell background to 'remove' it */
+}
+
+/* Styling for table headers */
+.thead-dark th {
+  background-color: #0F172B !important; /* Dark blue background for headers */
+  color: #FA9D22 !important; /* Updated yellow color for header text */
+}
+
+/* Styling for all cells in the table row */
+.table tbody tr td {
+  background-color: #232430 !important; /* Raisin black background for all cells */
+  color: #ffffff !important; /* White text color */
+}
+
+/* Specific hover state for the table row */
+.table-striped .table tbody tr:hover {
+  background-color: #232430 !important; /* Raisin black background for hover state */
+  color: #ffffff !important; /* White text for hover state */
+}
+
+/* Styling for the 'Order completed' button */
+.btn-danger {
+  background-color: #28a745 !important; /* Green background for the button */
+  color: #ffffff !important; /* White text for the button */
+  border: none !important; /* Removes the border if present */
+}
+
+/* Hover effect for the button, if desired */
+.btn-danger:hover {
+  background-color: #218838 !important; /* A darker green for hover effect */
+}
