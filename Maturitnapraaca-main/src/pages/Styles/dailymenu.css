@@ -1,178 +1,105 @@
 body {
-    background-color: #C0C1C4;
-}
-
-.dmenu-container {
-    width: 80%;
-    margin: auto;
-    background-color: #202130; /* Adjusted for content background */
-    color: #FA9D22; /* Updated Yellow text color for contrast */
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    font-family: 'Arial', sans-serif;
+  background-color: #F5F5F5; /* Light cream background for a soft, inviting feel */
 }
 
 .button-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .day-button, .btn-outline-primary {
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    margin: 0 10px;
-    cursor: pointer;
-    border: none;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px #222;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    background-color: #002147; /* Oxford Blue */
-    color: #FA9D22; /* Updated Yellow */
-    border-color: #002147;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  margin: 0 10px;
+  cursor: pointer;
+  border: 1px solid #FA9D22; /* Burnt orange border */
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: #800020; /* Burgundy background */
+  color: #FAF9F6; /* Creamy white text */
 }
 
 .day-button:hover, .btn-outline-primary:hover {
-    background-color: #FA9D22; /* Updated Yellow */
-    color: #002147; /* Oxford Blue */
-    border-color: #FA9D22;
+  background-color: #FA9D22; /* Burnt orange background on hover */
+  color: #0F172B; /* Dark blue text */
 }
 
 .day-button.btn-primary, .day-button:active, .day-button:focus, .btn-primary {
-    background-color: #FA9D22 !important;
-    color: #002147 !important;
-    border-color: #FA9D22 !important;
+  background-color: #FA9D22 !important; /* Burnt orange for active/focused day */
+  color: #0F172B !important; /* Dark blue text for contrast */
 }
 
 .menu-items .card {
-    background-color: #0f172b; /* Slightly lighter blue for cards */
-    color: #ffff;
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    box-shadow: 2px 2px 4px #222;
+  background-color: #FAF9F6; /* Creamy white for cards, softer look */
+  color: #333; /* Dark gray text */
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  box-shadow: 2px 2px 4px #222;
 }
 
 .menu-items .card:hover {
-    transform: scale(1.05);
+  transform: scale(1.05); /* Slight scale for interaction feedback */
 }
 
 .menu-items .card .card-body {
-    padding: 15px;
-    color:#222431
-    
+  padding: 15px;
 }
+
 .menu-items .card-title, .menu-items .card-subtitle {
-    color: #FA9D22; /* Updated yellow for titles and subtitles */
+  color: #800020; /* Burgundy for titles and subtitles */
 }
 
 .menu-items .card-text {
-    font-size: 1em;
-    color: #ffffff; /* Ensuring text is readable against the dark background */
+  font-size: 1em;
+  color: #333; /* Dark gray for text */
 }
 
 .modal-content {
-    background-color: #2a3b4c; /* Modal background */
-    color: #FA9D22; /* Updated yellow for modal content */
-    border-radius: 5px;
-    box-shadow: 2px 2px 4px #222;
+  background-color: #FAF9F6; /* Creamy white for modal background */
+  color: #333; /* Dark gray for modal text */
+  border-radius: 5px;
 }
 
 .modal-header, .modal-footer {
-    background-color: #002147; /* Oxford Blue for modal header/footer */
-    color: #FA9D22; /* Updated yellow text */
-    border: none; /* Remove border if not needed */
+  background-color: #800020; /* Burgundy for a rich look */
+  color: #FAF9F6; /* Creamy white text */
 }
+
 .modal-footer {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 12px; /* Adjust padding as necessary */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 12px;
 }
+
 .modal-header .close {
-    color: #FA9D22;
-    opacity: 1; /* Make sure the close button is fully visible */
+  color: #FAF9F6;
+  opacity: 1;
 }
 
 @media (max-width: 768px) {
-    .dmenu-container {
-        width: 95%;
-    }
-
-    .button-container {
-        flex-wrap: wrap;
-    }
-
-    .button-container .day-button {
-        flex: 1 1 auto;
-        margin-bottom: 10px;
-    }
-}
-
-/* Animations */
-@keyframes buttonFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+  .button-container {
+      flex-wrap: wrap;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .button-container .day-button {
+      flex: 1 1 auto;
+      margin-bottom: 10px;
   }
 }
 
-.day-button {
-  animation: buttonFadeIn 0.5s ease-out;
-}
-
-@keyframes cardFadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.menu-items .card {
-  animation: cardFadeInUp 0.5s ease-out;
-}
-
-/* Loading screen */
 .loading-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #002147; /* Oxford Blue */
+  background-color: #800020; /* Burgundy background for loading screen */
+  color: #FAF9F6; /* Creamy white for loading text */
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #FA9D22; /* Updated yellow */
-  font-size: 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: 1000;
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.7;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.loading-screen::after {
-  content: 'Loading...';
-  animation: pulse 2s infinite ease-in-out;
 }

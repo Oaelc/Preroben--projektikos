@@ -56,9 +56,10 @@ const Ordermenu = () => {
                             <small>{item.description}</small>
                         </div>
                         <div className="d-flex align-items-center">
-                            <button className="btn btn-secondary mr-2" onClick={() => handleQuantityChange(index, -1)} disabled={item.quantity <= 0}>-</button>
+                            <button className="btn btn-secondary btn-minus" onClick={() => handleQuantityChange(index, -1)} disabled={item.quantity <= 0}>-</button>
                             <span>{item.quantity}</span>
-                            <button className="btn btn-primary ml-2" onClick={() => handleQuantityChange(index, 1)}>+</button>
+                            <button className="btn btn-primary btn-plus" onClick={() => handleQuantityChange(index, 1)}>+</button>
+
                         </div>
                     </li>
                 ))}

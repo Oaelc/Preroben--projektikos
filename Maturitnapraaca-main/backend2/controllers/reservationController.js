@@ -2,6 +2,7 @@ const prisma = require('../lib/prisma');
 
 // Make a reservation
 const makeReservation = async (req, res) => {
+    console.log("Received reservation data:", req.body);
     try {
         const { reservationDate, tableNumber, userId } = req.body;
         const reservation = await prisma.reservation.create({
@@ -9,15 +10,17 @@ const makeReservation = async (req, res) => {
                 reservationDate: new Date(reservationDate),
                 table: Number(tableNumber),
                 userId: Number(userId),
+                endTime: new Date() // Assuming `endTime` should be set to the current time
             },
         });
-
+        console.log("Reservation created successfully:", reservation);
         res.json({ reservationId: reservation.id });
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error making reservation:', error);
         res.status(500).json({ error: 'Internal server error' });
     }
 };
+
 
 // Delete a reservation
 const deleteReservation = async (req, res) => {
@@ -31,57 +34,69 @@ const deleteReservation = async (req, res) => {
                 where: { id: Number(reservationId) },
             }),
         ]);
-
         res.json({ message: 'Reservation and related orders deleted successfully' });
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error deleting reservation:', error);
         res.status(500).json({ error: 'Internal server error' });
     }
 };
 
-// Check table availability
 const checkTableAvailability = async (req, res) => {
     const { reservationDate, tableNumber } = req.body;
+    const reservationStart = new Date(reservationDate);
+    const reservationEnd = new Date(reservationStart.getTime() + 60 * 60 * 1000); // Adds 1 hour in milliseconds
+    const nextHour = new Date(reservationStart.getTime() + 2 * 60 * 60 * 1000); // Adds 2 hours in milliseconds
+
+    // Set reservationStart to the beginning of the hour
+    reservationStart.setMinutes(0);
+    reservationStart.setSeconds(0);
+
+    console.log("Checking availability for table:", tableNumber);
+    console.log("Reservation start:", reservationStart.toISOString());
+    console.log("Reservation end:", reservationEnd.toISOString());
+    console.log("Next hour:", nextHour.toISOString());
+
     try {
-        const availability = await prisma.reservation.findMany({
+        const overlappingReservations = await prisma.reservation.findMany({
             where: {
+                table: Number(tableNumber),
                 AND: [
-                    { table: Number(tableNumber) },
                     {
                         reservationDate: {
-                            gte: new Date(reservationDate),
-                            lt: new Date(new Date(reservationDate).getTime() + 2 * 60 * 60 * 1000), // checks for 2-hour window
+                            lt: nextHour,
+                        },
+                    },
+                    {
+                        reservationDate: {
+                            gte: reservationStart,
                         },
                     },
                 ],
             },
         });
 
-        if (availability.length > 0) {
-            return res.status(409).json({ message: 'Table is not available at the selected time.' });
+        if (overlappingReservations.length > 0) {
+            res.status(409).json({ message: 'Table is not available at the selected time.' });
+        } else {
+            res.json({ message: 'Table is available.' });
         }
-
-        res.json({ message: 'Table is available.' });
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error checking table availability:', error);
         res.status(500).json({ error: 'Internal server error' });
     }
 };
 
-// Fetch user reservations with details
-const getUserReservationsWithDetails = async (req, res) => {
-    // Correctly parse and validate userId from the request, assuming middleware has set it
-    const userId = parseInt(req.userId);
 
+
+// Fetch user reservations
+const getUserReservations = async (req, res) => {
+    const userId = parseInt(req.params.userId);
     if (isNaN(userId)) {
         return res.status(400).json({ error: 'Invalid user ID' });
     }
-
     try {
         const reservations = await prisma.reservation.findMany({
-            where: {
-                userId: userId,
-            },
+            where: { userId: userId },
             include: {
                 orders: {
                     include: {
@@ -90,8 +105,11 @@ const getUserReservationsWithDetails = async (req, res) => {
                 },
             },
         });
-
-        res.json(reservations);
+        const detailedReservations = reservations.map(reservation => ({
+            ...reservation,
+            totalCost: reservation.orders.reduce((acc, curr) => acc + curr.menu.price, 0),
+        }));
+        res.json(detailedReservations);
     } catch (error) {
         console.error('Error fetching user reservations:', error);
         res.status(500).json({ error: 'Internal server error' });
@@ -102,5 +120,5 @@ module.exports = {
     makeReservation,
     deleteReservation,
     checkTableAvailability,
-    getUserReservationsWithDetails,
+    getUserReservations,
 };

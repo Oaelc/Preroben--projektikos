@@ -1,0 +1,61 @@
+/* General reset for margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set the font for the whole application */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F5F5F5; /* Light cream background for a soft, inviting feel */
+}
+
+/* Main layout container */
+.app-container {
+    display: flex;
+    height: 100vh; /* Full viewport height */
+}
+
+/* Fixed navbar styles */
+.navbar {
+    background-color: #102027; /* Dark background for the navbar */
+    color: #FAF9F6; /* Soft white text */
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto; /* Scrollable if the content is longer than the viewport */
+    z-index: 1000; /* Higher index to stay on top */
+}
+
+/* Scrollbar styling for the navbar */
+.navbar::-webkit-scrollbar {
+    width: 5px; /* Narrow scrollbar for a cleaner look */
+}
+
+.navbar::-webkit-scrollbar-thumb {
+    background-color: #FA9D22; /* Burnt orange scrollbar handle */
+    border-radius: 5px;
+}
+
+/* Hide scrollbar for non-webkit browsers (optional) */
+.navbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.navbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+/* Main content area that does not scroll under the navbar */
+.main-content {
+    margin-left: 250px; /* Space for the navbar */
+    flex-grow: 1;
+    overflow-y: auto; /* Scrollable if the content is longer than the viewport */
+    height: 100vh;
+    padding-top: 20px; /* Adjust as necessary */
+    padding-left: 20px; /* Adjust as necessary */
+}

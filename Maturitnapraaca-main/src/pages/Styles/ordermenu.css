@@ -1,71 +1,60 @@
-/* ordermenu.css - Full Code with Hover Animations */
-
-/* Container for menu window */
+/* Container for the order menu */
 .container.menuWindow {
-    background-color: #232430; /* Dark blue color */
-    border-radius: 5px; /* Rounded corners */
-    padding: 1rem; /* Padding */
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Shadow for depth */
-    color: #FA9D22; /* Yellow color for text */
-    transition: box-shadow 0.2s ease-in-out; /* Smooth shadow transition */
+    font-family: 'Arial', sans-serif;
+    background-color: #FAF9F6; /* Creamy background for a softer look */
+    color: #333; /* Dark gray for text, ensuring readability */
+    border-radius: 5px; /* Soft rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 20px;
+    margin-top: 20px;
 }
 
-/* Header styles */
-h3 {
-    font-size: 2rem; /* Header size */
-    font-weight: bold; /* Bold font */
-    color: #FA9D22; /* Yellow color */
-    text-align: center; /* Centered text */
-    margin-bottom: 1rem; /* Spacing below header */
-}
-
-/* Total sum styles */
-.total-sum p {
-    font-weight: bold; /* Bold font for total */
-    color: #FA9D22; /* Bright yellow for the word 'Total' */
-}
-
-/* Total price styles */
-.total-sum .text-success {
-    color: #28a745; /* Visible green color for price number */
-}
-
-/* List item styles */
+/* Menu item list styling */
 .list-group-item {
-    background-color: #0F172B; /* Dark blue color */
-    color: #FA9D22; /* Yellow color for text */
-    border: none; /* No border */
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; /* Transition for hover */
+    background-color: #FFF; /* White background for clarity */
+    color: #333; /* Dark gray text for easy reading */
+    border: 1px solid #FA9D22; /* Burnt orange border for a pop of color */
+    margin-bottom: 10px; /* Spacing between items */
+    border-radius: 3px; /* Softly rounded corners */
 }
 
-/* List item hover effect */
-.list-group-item:hover {
-    background-color: #1A233A; /* Slightly lighter blue for hover effect */
-    color: #FFD700; /* Change text color slightly on hover for better visibility */
+/* Styling for item titles and descriptions */
+h5, p {
+    color: #800020; /* Burgundy for titles, adding warmth */
 }
 
-/* Button styles */
-.btn-danger, .btn-success {
-    border: none; /* No border */
-    margin: 5px; /* Spacing around button */
-    transition: transform 0.2s ease-in-out; /* Transition for click effect */
+/* Quantity change buttons - shared styles */
+.btn {
+    border: none; /* Remove default border */
+    margin: 0 5px; /* Spacing around buttons */
 }
 
-/* Hover effect for buttons */
-.btn-danger:hover, .btn-success:hover {
-    transform: scale(1.05); /* Slightly enlarge buttons on hover */
+/* Specific styles for plus button */
+.btn.btn-plus {
+    background-color: #28a745 !important; /* Green background for 'plus' button */
 }
 
-/* Button 'Add' styles */
-.btn-success {
-    background-color: #5cb85c; /* Green color for add button */
-    /* No color change on hover as per your instruction */
+.btn.btn-plus:hover, 
+.btn.btn-plus:active, 
+.btn.btn-plus:focus {
+    background-color: #218838 !important; /* Darker green on hover, active and focus */
 }
 
-/* Button 'Delete' styles */
-.btn-danger {
-    background-color: #a94442; /* Red color for delete button */
-    /* No color change on hover as per your instruction */
+/* Specific styles for minus button */
+.btn.btn-minus {
+    background-color: #dc3545; /* Red background for 'minus' button */
 }
 
-/* Add any additional styles as needed */
+.btn.btn-minus:hover, 
+.btn.btn-minus:active, 
+.btn.btn-minus:focus {
+    background-color: #c82333; /* Darker red on hover, active and focus */
+}
+
+/* Total sum display */
+.total-sum {
+    text-align: right; /* Align the total sum to the right */
+    color: #800020; /* Burgundy for the total sum, emphasizing cost */
+    font-weight: bold; /* Make the total sum bold */
+    margin-bottom: 20px; /* Spacing below the total sum */
+}

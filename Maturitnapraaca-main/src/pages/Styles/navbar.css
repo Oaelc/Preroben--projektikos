@@ -1,70 +1,84 @@
 /* Navbar container styles */
 .navbar {
-    background-color: #0F172B;
-    color: #FFFFFF;
+    background-color: #102027; /* Dark background for the navbar */
+    color: #FAF9F6; /* Soft white text */
     width: 250px;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     padding: 0;
     align-items: center;
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Style the scrollbar to match the navbar theme */
+.navbar::-webkit-scrollbar {
+    width: 10px; /* Scrollbar width */
+}
+
+.navbar::-webkit-scrollbar-track {
+    background: #102027; /* Scrollbar track color to match navbar bg */
+}
+
+.navbar::-webkit-scrollbar-thumb {
+    background: #264653; /* Scrollbar handle color */
+    border-radius: 5px; /* Rounded scrollbar handle */
+}
+
+.navbar::-webkit-scrollbar-thumb:hover {
+    background: #2A9D8F; /* Scrollbar handle color on hover */
 }
 
 /* Style the navbar links */
 .navbar-link {
     text-decoration: none;
-    color: inherit;
+    color: #FAF9F6; /* Soft white text */
     font-weight: 500;
-    font-size: 25px;
+    font-size: 1.5rem; /* Slightly smaller font size */
     width: 100%;
-    padding: 30px 15px;
+    padding: 1.5rem; /* Adjust padding */
     text-align: center;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Smooth transitions for hover effects */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transitions for hover effects */
     box-sizing: border-box;
-    margin: 0;
-    border-radius: 0;
-    border-top: 0px solid #505168;
-    border-bottom: 0px solid #505168;
-}
-
-.navbar-link:first-child {
-    border-top: none;
-}
-
-.navbar-link:last-child {
-    border-bottom: none;
 }
 
 /* Hover effect for navbar links */
-.navbar-link:hover, .navbar-link:focus {
-    background-color: #1A233A; /* Slightly lighter blue for hover effect */
-    color: #DA9D22 !important;
-    transform: translateY(-5px); /* Slight upward movement on hover */
+.navbar-link:hover, .navbar-link.active, .navbar-link:focus {
+    background-color: #264653; /* A slightly lighter blue for hover effect */
+    color: #E9C46A; /* Burnt orange text for contrast */
 }
 
 /* Style the navbar title */
 .navbar-title {
     text-decoration: none;
-    color: #FA9D22;
+    color: #E9C46A; /* Burnt orange text for emphasis */
     margin-bottom: 20px;
-    font-size: 30px;
+    font-size: 2rem; /* Larger font size for the title */
     font-weight: 800;
     text-align: center;
-    background-color: #0F172B;
-    padding: 15px 30px;
-    border-radius: 10px;
-    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Updated transition property */
+    padding: 1rem; /* Adjust padding */
+    width: 100%;
 }
 
 .navbar-title:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    color: #F4A261; /* Slightly lighter orange on hover */
 }
 
 /* Highlight active navbar link */
 .navbar-link.active {
-    background-color: #2980b9; /* Highlight color */
-    color: #ffffff; /* Text color for highlighted link */
-    transform: scale(1.05); /* Optional: Slightly increase size for emphasis */
+    background-color: #2A9D8F; /* Teal highlight color */
+    color: #E9C46A; /* Burnt orange text color for highlighted link */
 }
+
+/* Icon styling */
+.user-icon {
+  color: #E9C46A; /* Burnt orange color for icons */
+  margin-right: 8px; /* Space between icon and text */
+}
+
+/* Adjust the padding for the menu-text */
+.menu-text {
+  padding-left: 8px; /* Add some padding if needed */
+}
+
+/* Add any additional styles as needed */

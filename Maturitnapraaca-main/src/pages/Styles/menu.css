@@ -1,23 +1,22 @@
 /* General Styles */
 .container {
   font-family: 'Arial', sans-serif;
-  color: #FA9D22; /* Specific yellow color */
+  color: #333333; /* Dark gray for general text for better readability */
 }
 
 h2 {
   text-align: center;
-  color: #FFFFFF; /* White color for headers */
+  color: #800020; /* Burgundy color for headers to convey sophistication */
   font-size: 2.5rem;
   font-weight: bold;
-  text-shadow: 1px 1px 2px #222;
   margin-bottom: 1rem;
 }
 
 /* Card Styles */
 .card {
-  background-color: #222431; /* Dark background for cards */
-  color: #FFFFFF; /* White text color for cards */
-  border: none;
+  background-color: #FAF9F6; /* Creamy white background for cards for a softer appearance */
+  color: #333333; /* Dark gray text color for cards for readability */
+  border: 1px solid #FA9D22; /* Burnt orange border to highlight the cards */
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease-in-out;
@@ -31,37 +30,33 @@ h2 {
 
 .card-body {
   padding: 15px;
-  background-color: #222431; /* Oxford Blue background */
+  background-color: #FAF9F6; /* Consistent with card background */
 }
 
 .card-title {
   font-size: 1.5em;
-  color: #FA9D22; /* Specific yellow color */
+  color: #800020; /* Burgundy color for titles to add depth */
 }
 
 .card-text {
   font-size: 1em;
-  color: #FFFFFF; /* White color for text */
-  font-weight: bold; /* Makes text bolder */
-  text-shadow: 2px 2px 4px #000000; /* Text shadow for readability */
+  color: #333333; /* Dark gray for text for readability */
 }
 
 .card-footer {
-  background-color: #222431; /* Dark background for footer */
-  color: #FA9D22; /* Specific yellow color */
+  background-color: #FAF9F6; /* Creamy white background for footer for a clean look */
+  color: #808000; /* Olive green color for price to introduce a natural element */
 }
 
 .text-muted {
-  color: #FA9D22 !important; /* Bright yellow color */
-  font-weight: bold;
+  color: #808000 !important; /* Olive green color for muted text for consistency */
 }
 
 /* Button Styles */
 .btn-secondary {
-  background-color: #FA9D22; /* Button color to match the theme */
-  color: #FFFFFF; /* White text color for buttons */
+  background-color: #808000; /* Olive green for buttons to match the earthy theme */
+  color: #FFFFFF; /* White text color for buttons for contrast */
   border: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition for hover effect */
 }
 
 .btn-secondary:hover {
@@ -69,48 +64,28 @@ h2 {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Shadow effect on hover */
 }
 
-/* Continuous pulse animation */
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.btn-secondary {
-  animation: pulse 2s infinite ease-in-out; /* Apply the pulse animation */
-}
-
 /* Modal Styling */
 .modal-content {
-  background-color: #2a3b4c; /* Slightly lighter than card for distinction */
-  color: #FA9D22; /* Specific yellow text to match the card text */
+  background-color: #FAF9F6; /* Creamy white background for modal for a light, inviting feel */
+  color: #333333; /* Dark gray text in modal for readability */
   border-radius: 5px;
-  box-shadow: 0px 0px 0px #222;
 }
 
 .modal-header, .modal-footer {
-  background-color: #222431; /* Dark background */
-  color: #FA9D22; /* Specific yellow text */
-  border: none;
+  background-color: #800020; /* Burgundy background for richness */
+  color: #FAF9F6; /* Creamy white text for contrast */
 }
 
 .modal-body {
-  background-color: #ffffff; /* White background for modal body */
+  background-color: #FAF9F6; /* Consistent with modal content background */
 }
 
 .modal-header .close {
-  color: #FA9D22; /* Specific yellow color for the close button */
+  color: #FAF9F6; /* Creamy white for the close button for visibility */
 }
 
 .modal-footer {
-  background-color: #222431; /* Dark background for modal footer */
-  color: #FA9D22; /* Specific yellow color for text */
+  border-top: 1px solid #800020; /* Burgundy top border for a defined separation */
 }
 
 /* Media Queries for Responsiveness */
@@ -120,4 +95,28 @@ h2 {
     margin: auto;
   }
   /* Additional responsive styles can be added here */
+}
+
+/* New styles for scrollable menu container */
+.menu-page-container {
+  padding-bottom: 100px; /* Adjust based on your navbar's height */
+}
+
+.menu-scroll-container {
+  overflow-y: auto; /* Add scroll to the y-axis */
+  max-height: calc(100vh - 150px); /* Adjust height based on your navbar and header */
+  padding-right: 15px; /* To avoid cutting off content on the right in the scrollable area */
+}
+
+/* Make sure the scrollbar is visible only when necessary */
+.menu-scroll-container::-webkit-scrollbar {
+  width: 5px; /* Scrollbar width */
+}
+
+.menu-scroll-container::-webkit-scrollbar-thumb {
+  background: #800020; /* Scrollbar color */
+}
+
+.menu-scroll-container::-webkit-scrollbar-track {
+  background: #f5f5f5; /* Scrollbar track color */
 }

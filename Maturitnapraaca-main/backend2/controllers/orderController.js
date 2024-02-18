@@ -1,31 +1,38 @@
+
 const prisma = require('../lib/prisma');
 
 async function makeOrder(req, res) {
+  console.log("Received order data for reservation:", req.body);
   try {
-    const { reservation_id, orders } = req.body; // Expecting `orders` to be an array of { menu_id, quantity }
-    
+    const { reservation_id, orders } = req.body;
+
     if (!reservation_id || !Array.isArray(orders)) {
       return res.status(400).json({ error: 'Invalid request structure' });
     }
 
+    const createdOrders = [];
     for (const order of orders) {
-      const { menu_id, quantity } = order;
+      // Use `id` from the order object as `menuId`
+      const { id: menu_id, quantity } = order;
       for (let i = 0; i < quantity; i++) {
-        await prisma.order.create({
+        const createdOrder = await prisma.order.create({
           data: {
             reservationId: Number(reservation_id),
-            menuId: Number(menu_id),
+            menuId: Number(menu_id), // Correctly reference `menu_id`
           },
         });
+        createdOrders.push(createdOrder);
       }
     }
-
+    console.log("Orders created successfully:", createdOrders);
     res.json({ message: "Orders created successfully." });
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Error creating orders:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 }
+
+
 
 
 async function getOrders(req, res) {
@@ -82,4 +89,4 @@ async function getUserOrders(req, res) {
 }
 
 
-module.exports = { makeOrder, getOrders, deleteOrder, getUserOrders };
+module.exports = { makeOrder, getOrders, deleteOrder, getUserOrders}

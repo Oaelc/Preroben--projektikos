@@ -64,7 +64,7 @@
 
 /* Today's date tile */
 .react-calendar__tile--now {
-    background-color: #0F172B !important;
+    background-color: #808000 !important;
     color: #ffffff !important; /* White text color for today's date */
     font-weight: bold !important;
 }
@@ -107,27 +107,34 @@
 
 /* Buttons */
 .btn-primary {
-    background-color: #0F172B !important;
-    border: none !important;
-    color: #fa9d22 !important;
+    background-color: #800020; /* Burgundy background */
+    border-color: #800020; /* Burgundy border */
+    color: #FAF9F6; /* Creamy white text */
     padding: 10px 20px; /* Larger padding for a better look */
     font-size: 1rem; /* Adjust font size as needed */
     border-radius: 5px; /* Rounded corners */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    transition: background-color 0.3s ease-in-out; /* Smooth transition for hover effect */
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-    background-color: #fa9d22 !important; /* Change color on hover/focus */
-    color: #0F172B !important;
+    background-color: #FA9D22; /* Burnt orange background on hover */
+    border-color: #FA9D22; /* Burnt orange border on hover */
+    color: #FFF; /* White text for contrast */
+    transform: translateY(-2px); /* Slight move up for dynamic feedback */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
 }
 
 /* Alert messages */
 .alert-info {
-    background-color: #0F172B !important;
-    color: #f0e68c !important;
-    border: none !important;
+    background-color: #0F172B; /* Dark blue background */
+    color: #FA9D22; /* Burnt orange text color */
+    padding: 0.75rem 1.25rem; /* Padding inside the alert */
+    margin-top: 1rem; /* Space above the alert */
+    border: 0; /* No border by default */
+    border-radius: 0.25rem; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    font-size: 1rem; /* Default font size */
+    text-align: center; /* Centered text */
 }
-
-/* Ensure this file is imported into your component after the default react-calendar styles */

@@ -15,9 +15,10 @@ const app = express();
 
 // Middleware setup
 app.use(cors({
-    origin: 'http://localhost:5173', // Adjust this to match your frontend's origin
-    credentials: true,
+  origin: 'http://localhost:5173', // or wherever your front-end is served from
+  credentials: true,
 }));
+
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(session({
@@ -30,7 +31,9 @@ app.use(session({
 // Use routes
 app.use('/api/user', userRoutes);
 app.use('/menu', menuRoutes);
+// Make sure this matches in server.js
 app.use('/api/dailymenu', dailyMenuRoutes);
+
 app.use('/api/reservation', reservationRoutes);
 app.use('/api/orders', orderRoutes);
 
@@ -40,8 +43,15 @@ app.use('/api/orders', orderRoutes);
 
 // Additional route for handling logout if needed
 app.post("/api/logout", (req, res) => {
-  // Logout logic here
-  res.status(200).send("Logged out successfully");
+  req.session.destroy((err) => {
+    if (err) {
+        console.error("Logout error:", err);
+        return res.status(500).json({ message: "Failed to logout." });
+    }
+    res.clearCookie('connect.sid');
+    console.log("User logged out");
+    res.status(200).send("Logged out successfully");
+  });
 });
 
 // Catch-all for non-existent route requests

@@ -1,44 +1,115 @@
-/* Objednavky.css - Full updated styles with all modifications */
-
-/* Overall table styling */
-.table {
-  background-color: #0F172B !important; /* Dark blue background for the whole table */
-  border-collapse: collapse !important; /* Collapse borders to remove space between cells */
+/* Custom styles to override Bootstrap styles */
+.form-control {
+  background-color: #8A2BE2; /* Neon purple for input backgrounds */
+  color: white; /* White text for inputs */
 }
 
-/* Styling for table text */
-.table td,
-.table th {
-  color: #FA9D22 !important; /* Updated yellow color for text */
-  border: 1px solid #0F172B !important; /* Make the border the same color as the cell background to 'remove' it */
+.btn-success {
+  background-color: #39FF14; /* Neon green for 'success' buttons */
+  border-color: #39FF14; /* Matching border color */
+  color: white; /* White text for 'success' buttons */
 }
 
-/* Styling for table headers */
-.thead-dark th {
-  background-color: #0F172B !important; /* Dark blue background for headers */
-  color: #FA9D22 !important; /* Updated yellow color for header text */
+.btn-warning {
+  background-color: #FFA500; /* Orange color for 'edit' buttons */
+  border-color: #FFA500; /* Matching border color */
 }
 
-/* Styling for all cells in the table row */
-.table tbody tr td {
-  background-color: #232430 !important; /* Raisin black background for all cells */
-  color: #ffffff !important; /* White text color */
+.btn-warning:hover {
+  background-color: #cc8400; /* Darker orange on hover */
+  border-color: #cc8400; /* Matching border color for hover state */
 }
 
-/* Specific hover state for the table row */
-.table-striped .table tbody tr:hover {
-  background-color: #232430 !important; /* Raisin black background for hover state */
-  color: #ffffff !important; /* White text for hover state */
-}
-
-/* Styling for the 'Order completed' button */
 .btn-danger {
-  background-color: #28a745 !important; /* Green background for the button */
-  color: #ffffff !important; /* White text for the button */
-  border: none !important; /* Removes the border if present */
+  background-color: #dc3545; /* Red color for 'delete' buttons */
+  border-color: #dc3545; /* Matching border color */
 }
 
-/* Hover effect for the button, if desired */
 .btn-danger:hover {
-  background-color: #218838 !important; /* A darker green for hover effect */
+  background-color: #c82333; /* Darker red on hover */
+  border-color: #c82333; /* Matching border color for hover state */
 }
+
+/* Additional styles for your components */
+.dmenu {
+  display: flex;
+}
+
+.menucontent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto;
+}
+
+.menuitem {
+  margin: 10px 0;
+}
+
+.PICS {
+  margin: 10px 0;
+}
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.navbar-link {
+  margin: 10px 0;
+}
+
+.login-container {
+  display: flex;
+}
+
+/* Override list group item hover state */
+.list-group-item:hover {
+  background-color: #FA9D22; /* Bright yellow background */
+  color: #0F172B; /* Dark blue text color */
+}
+
+/* H3 Title Style */
+h3 {
+  background-color: #dc3545; /* Red background */
+  color: white; /* White text */
+  padding: 5px; /* Padding around the text */
+  border-radius: 5px; /* Rounded corners */
+}
+
+/* Table Styles */
+.table {
+  background-color: #f5f5f5; /* Light background for the table */
+  color: #333; /* Dark text for readability */
+  border-collapse: collapse; /* Collapse borders */
+}
+
+.table th,
+.table td {
+  border: 1px solid #ddd; /* Light grey border */
+  padding: 8px; /* Padding in cells */
+}
+
+.table th {
+  background-color: #0F172B; /* Dark blue background for header */
+  color: #FA9D22; /* Bright yellow text for header */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f9f9f9; /* Lighter stripe for odd rows */
+}
+
+.table-hover tbody tr:hover {
+  background-color: #eaeaea; /* Slight grey background on hover */
+}
+
+/* ... (add any other styles you need) ... */

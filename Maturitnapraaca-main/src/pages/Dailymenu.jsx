@@ -9,7 +9,7 @@ const Dmenu = () => {
   const [selectedDay, setSelectedDay] = useState('Monday');
   const [selectedItem, setSelectedItem] = useState(null);
   const [showModal, setShowModal] = useState(false);
-  const [isLoading, setIsLoading] = useState(true); // State for loading screen
+  const [isLoading, setIsLoading] = useState(true);
   const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
   useEffect(() => {
@@ -17,15 +17,15 @@ const Dmenu = () => {
   }, [selectedDay]);
 
   const fetchDailyMenu = (day) => {
-    setIsLoading(true); // Show loading screen when fetching
+    setIsLoading(true);
     axios.get(`http://localhost:5000/api/dailymenu/${day}`)
       .then((res) => {
         setDailyMenu(res.data);
-        setIsLoading(false); // Hide loading screen after data is fetched
+        setIsLoading(false);
       })
       .catch((error) => {
         console.error('Error fetching daily menu:', error);
-        setIsLoading(false); // Hide loading screen on error
+        setIsLoading(false);
       });
   };
 
@@ -41,7 +41,7 @@ const Dmenu = () => {
       {isLoading && (
         <div className="loading-screen">Loading...</div>
       )}
-      <div className={`dmenu-container mt-4 ${!isLoading ? 'loaded' : ''}`}>
+      <div className="mt-4">
         <div className="button-container mb-4">
           {daysOfWeek.map((day) => (
             <button
@@ -65,23 +65,22 @@ const Dmenu = () => {
             </div>
           ))}
         </div>
-
-        {/* Modal */}
-        <Modal show={showModal} onHide={handleCloseModal}>
-          <Modal.Header closeButton>
-            <Modal.Title>{selectedItem?.item}</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <p>{selectedItem?.description}</p>
-            <p className="price">Price: {selectedItem?.price}$</p>
-          </Modal.Body>
-          <Modal.Footer>
-            <button className="btn btn-secondary" onClick={handleCloseModal}>
-              Close
-            </button>
-          </Modal.Footer>
-        </Modal>
       </div>
+
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>{selectedItem?.item}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>{selectedItem?.description}</p>
+          <p className="price">Price: {selectedItem?.price}$</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <button className="btn btn-secondary" onClick={handleCloseModal}>
+            Close
+          </button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 };

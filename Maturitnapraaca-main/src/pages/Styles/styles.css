@@ -1,15 +1,33 @@
 /* Custom styles to override Bootstrap styles */
 .form-control {
-  background-color: neon-purple;
-  color: white;
+  background-color: #8A2BE2; /* Neon purple for input backgrounds */
+  color: white; /* White text for inputs */
 }
 
-.btn-success {
-  background-color: neon-green;
-  border-color: neon-green;
-  color: white;
+/* Custom button styles */
+.btn-edit {
+  background-color: #4CAF50; /* Green background for 'edit' buttons */
+  border-color: #4CAF50; /* Matching border color */
+  color: white; /* White text for 'edit' buttons */
 }
 
+.btn-edit:hover {
+  background-color: #388E3C; /* Darker green on hover */
+  border-color: #388E3C; /* Matching border color for hover state */
+}
+
+.btn-delete {
+  background-color: #F44336; /* Red background for 'delete' buttons */
+  border-color: #F44336; /* Matching border color */
+  color: white; /* White text for 'delete' buttons */
+}
+
+.btn-delete:hover {
+  background-color: #D32F2F; /* Darker red on hover */
+  border-color: #D32F2F; /* Matching border color for hover state */
+}
+
+/* Additional styles for your components */
 .dmenu {
   display: flex;
 }
@@ -18,7 +36,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top:auto;
+  margin-top: auto;
 }
 
 .menuitem {
@@ -29,7 +47,7 @@
   margin: 10px 0;
 }
 
-/* Add styles for the navbar */
+/* Navbar styles */
 .navbar {
   display: flex;
   flex-direction: column;
@@ -40,19 +58,21 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 20px; /* Adjust the margin for the navbar items */
+  margin-top: 20px;
 }
 
 .navbar-link {
   margin: 10px 0;
 }
 
-.login-container{
+.login-container {
   display: flex;
 }
 
-/* Overriding Bootstrap's hover effect for list group items */
+/* Override list group item hover state */
 .list-group-item:hover {
-  background-color: #FA9D22 !important; /* Updated hover background color to yellow */
-  color: #0F172B !important; /* Updated hover text color to dark blue */
+  background-color: #FA9D22; /* Bright yellow background */
+  color: #0F172B; /* Dark blue text color */
 }
+
+/* Ensure this file is imported into your component after the default Bootstrap styles */

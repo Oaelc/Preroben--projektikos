@@ -19,19 +19,20 @@ function ViewOrders() {
   const fetchOrders = async () => {
     try {
       const response = await axios.get('http://localhost:5000/api/orders');
+      console.log("Orders fetched:", response.data); // Check the fetched data
       const aggregatedOrders = aggregateOrdersByReservation(response.data);
+      console.log("Aggregated Orders:", aggregatedOrders); // Verify aggregated data structure
       setOrders(aggregatedOrders);
     } catch (error) {
       console.error('Error fetching orders:', error);
     }
   };
-
+  
   const handleDeleteOrder = async (reservationId) => {
-    console.log("Deleting reservation with ID:", reservationId);
+    console.log("Attempting to delete reservation with ID:", reservationId); // Confirm deletion attempt
     try {
-      // Corrected URL to match the server's endpoint for deleting a reservation
       await axios.delete(`http://localhost:5000/api/reservation/${reservationId}`);
-      // Filter out the deleted order from your component's state
+      console.log(`Reservation with ID: ${reservationId} deleted successfully.`); // Confirm deletion success
       const updatedOrders = orders.filter(order => order.id !== reservationId);
       setOrders(updatedOrders);
     } catch (error) {
@@ -43,18 +44,30 @@ function ViewOrders() {
   const aggregateOrdersByReservation = (orders) => {
     const groupedOrders = {};
     orders.forEach(order => {
-      if (!groupedOrders[order.reservation.id]) {
-        groupedOrders[order.reservation.id] = {
-          ...order.reservation,
-          meals: [order.menu.item.trim()],
+      const key = `${order.reservation.id}-${new Date(order.reservation.reservationDate).toISOString()}`;
+      if (!groupedOrders[key]) {
+        groupedOrders[key] = {
+          id: order.reservation.id,
+          user: order.reservation.user,
+          reservationDate: order.reservation.reservationDate,
+          table: order.reservation.table,
+          meals: [{ item: order.menu.item, count: 1 }],
           totalCost: order.menu.price
         };
       } else {
-        groupedOrders[order.reservation.id].meals.push(order.menu.item.trim());
-        groupedOrders[order.reservation.id].totalCost += order.menu.price;
+        const existingMeal = groupedOrders[key].meals.find(meal => meal.item === order.menu.item);
+        if (existingMeal) {
+          existingMeal.count += 1;
+        } else {
+          groupedOrders[key].meals.push({ item: order.menu.item, count: 1 });
+        }
+        groupedOrders[key].totalCost += order.menu.price;
       }
     });
-    return Object.values(groupedOrders);
+    return Object.values(groupedOrders).map(order => ({
+      ...order,
+      mealsDisplay: order.meals.map(meal => `${meal.count > 1 ? `${meal.count}x ` : ''}${meal.item}`).join(", ")
+    }));
   };
 
   const calculateTotalRevenue = (orders) => {
@@ -72,7 +85,7 @@ function ViewOrders() {
           <thead className="thead-dark">
             <tr>
               <th>User</th>
-              <th>Date of Reservation</th>
+              <th>Date and Time of Reservation</th>
               <th>Table</th>
               <th>Meals Ordered</th>
               <th>Total Cost</th>
@@ -83,9 +96,9 @@ function ViewOrders() {
             {orders.map(order => (
               <tr key={order.id} className="order-row">
                 <td>{order.user?.username || 'N/A'}</td>
-                <td>{new Date(order.reservationDate).toLocaleDateString()}</td>
+                <td>{new Date(order.reservationDate).toLocaleString()}</td>
                 <td>{order.table}</td>
-                <td>{order.meals.join(", ")}</td>
+                <td>{order.mealsDisplay}</td>
                 <td>${order.totalCost.toFixed(2)}</td>
                 <td>
                   <button 

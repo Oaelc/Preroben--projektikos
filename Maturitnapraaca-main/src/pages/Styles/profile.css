@@ -2,92 +2,85 @@
 .profile-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center children horizontally */
+  align-items: center;
   padding: 20px;
-  background-color: #f5f5f5;
-  min-height: 100vh; /* Full height */
-  width: 100%; /* Full width */
+  background-color: #F5F5F5; /* Light cream background for a soft, inviting feel */
+  min-height: 100vh;
+  width: 100%;
   box-sizing: border-box;
 }
 
 .card {
-  background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 20px 0; /* Spacing between cards */
-  border-radius: 8px;
+  background-color: #FFFFFF; /* Clean, white background for clarity and focus */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin: 20px 0;
+  border-radius: 8px; /* Rounded corners for a modern look */
   overflow: hidden;
   width: 100%;
-  max-width: 600px; /* Adjust the max-width as needed */
+  max-width: 600px; /* Maximum width for optimal layout */
 }
 
 .card-header {
-  background-color: #0F172B; /* Dark blue header for cards */
-  color: #FA9D22; /* Orange text */
+  background-color: #800020; /* Burgundy for sophistication and depth */
+  color: #FAF9F6; /* Creamy white for high contrast and readability */
   padding: 15px 20px;
-  font-size: 1.25rem;
+  font-size: 1.25rem; /* Slightly larger font size for emphasis */
 }
 
 .card-body {
   padding: 20px;
-  color: #333;
+  color: #333333; /* Dark gray for readability and soft contrast */
 }
 
-.order-history-card {
-  margin-top: 20px;
+.todays-menu-section {
+  background-color: #FAF9F6; /* Creamy background to soften the overall look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Consistent with other cards for depth */
+  margin: 20px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 600px;
+  border: 2px solid #FA9D22; /* Burnt orange border to highlight and draw attention */
 }
 
-.reservation-history + .reservation-history {
-  border-top: 1px solid #e0e0e0; /* Add top border to all but first reservation history */
+.todays-menu-section .card-header {
+  background-color: #FA9D22; /* Burnt orange for a vibrant and inviting header */
+  color: #0F172B; /* Dark blue text for a strong contrast */
+  padding: 15px 20px;
+  font-size: 1.25rem;
 }
 
-.order-details {
-  background-color: #f8f9fa; /* Light background for order details */
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 5px;
+.todays-menu-section .card-body {
+  padding: 20px;
+  color: #333333; /* Maintained dark gray for text for consistency and readability */
 }
 
 .logout-button {
-  background-color: #0F172B; /* Dark blue color for logout button */
-  color: #FA9D22; /* Orange text */
+  background-color: #808000; /* Olive green for a natural, earthy button */
+  color: #FFFFFF; /* White text for clarity and contrast */
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
-  border-radius: 5px;
+  border-radius: 5px; /* Smooth edges for a friendly touch */
   cursor: pointer;
   margin-top: 20px;
-  align-self: center; /* Center button horizontally */
 }
 
 .logout-button:hover {
-  background-color: #FA9D22; /* Orange background for hover */
-  color: #0F172B; /* Dark blue text */
+  background-color: #FA9D22; /* Burnt orange for hover state, adding warmth */
+  color: #0F172B; /* Dark blue text for contrast */
 }
 
-.loading, .empty-state {
-  text-align: center;
-  padding: 20px;
-}
-
-.empty-state i {
-  color: #FA9D22; /* Orange icon */
-}
-
-/* Responsive Design */
 @media (max-width: 768px) {
-  .card-header {
-    font-size: 1rem;
+  .card-header, .logout-button {
+    font-size: 1rem; /* Adjusted for smaller screens for better readability */
   }
 
   .logout-button {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+    padding: 8px 16px; /* Slightly smaller padding for compact appearance */
   }
 }
 
-/* Hover effect for buttons */
-.btn-primary:hover, .btn-danger:hover {
-  opacity: 0.9;
+.btn-primary:hover, .btn-danger:hover, .btn-info:hover {
+  opacity: 0.9; /* Subtle hover effect for interactive feedback */
 }
-
-/* Ensure the correct path to your CSS file */

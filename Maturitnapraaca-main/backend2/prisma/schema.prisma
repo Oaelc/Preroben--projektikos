@@ -16,10 +16,10 @@ model User {
 }
 
 model Reservation {
-  id              Int      @id @unique @deafault(autoincrement())
+  id              Int      @id @unique @default(autoincrement())
   table           Int
   reservationDate DateTime
-
+  endTime         DateTime
   userId Int
   user   User @relation(fields: [userId], references: [id])
 

@@ -1,6 +1,5 @@
-// authContext.tsx
-import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { redirect } from 'react-router-dom'; // Import useNavigate
+import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // Correct import for useNavigate
 
 interface AuthContextProps {
   user: any;
@@ -12,15 +11,22 @@ const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<any>(null);
-
+  const navigate = useNavigate(); // Using useNavigate hook
 
   const login = (user: any) => {
     setUser(user);
   };
 
-  const logout = () => {
-    setUser(null);
-    redirect('/login'); // Redirect to the login page after logout
+  const logout = async () => {
+    // Assuming axios or another HTTP client is used for API calls
+    try {
+      await axios.post('http://localhost:5000/api/logout');
+      localStorage.removeItem('authToken'); // Assuming you store authToken in localStorage
+      setUser(null);
+      navigate('/login'); // Correctly redirect to the login page after logout
+    } catch (error) {
+      console.error('Logout error:', error);
+    }
   };
 
   return (
