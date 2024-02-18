@@ -32,7 +32,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-content">
         <Link to="/" className="navbar-title">
-          Vrbový Prístav
+        Savor's Haven
         </Link>
         <div onClick={handleProfileClick} className={`navbar-link ${isActive('/profile') ? 'active' : ''}`}>
           <FontAwesomeIcon icon={faUser} className="user-icon" />

@@ -4,83 +4,87 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: #F5F5F5; /* Light cream background for a soft, inviting feel */
+  background-color: #F5F5F5; /* Light cream background */
   min-height: 100vh;
   width: 100%;
   box-sizing: border-box;
 }
 
 .card {
-  background-color: #FFFFFF; /* Clean, white background for clarity and focus */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  background-color: #FFFFFF; /* Clean, white background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 20px 0;
-  border-radius: 8px; /* Rounded corners for a modern look */
+  border-radius: 8px;
   overflow: hidden;
   width: 100%;
-  max-width: 600px; /* Maximum width for optimal layout */
+  max-width: 600px; /* Optimal width for content */
 }
 
 .card-header {
-  background-color: #800020; /* Burgundy for sophistication and depth */
-  color: #FAF9F6; /* Creamy white for high contrast and readability */
+  background-color: #800020; /* Burgundy for headers */
+  color: #FAF9F6; /* Creamy white for text */
   padding: 15px 20px;
-  font-size: 1.25rem; /* Slightly larger font size for emphasis */
+  font-size: 1.25rem;
 }
 
 .card-body {
   padding: 20px;
-  color: #333333; /* Dark gray for readability and soft contrast */
+  color: #333333; /* Dark gray for readable text */
 }
 
+/* Styling for Today's Menu section */
 .todays-menu-section {
-  background-color: #FAF9F6; /* Creamy background to soften the overall look */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Consistent with other cards for depth */
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 20px 0;
   border-radius: 8px;
   overflow: hidden;
   width: 100%;
   max-width: 600px;
-  border: 2px solid #FA9D22; /* Burnt orange border to highlight and draw attention */
+  border: 1px solid #800020; /* Accent border */
 }
 
 .todays-menu-section .card-header {
-  background-color: #FA9D22; /* Burnt orange for a vibrant and inviting header */
-  color: #0F172B; /* Dark blue text for a strong contrast */
+  background-color: #800020;
+  color: #FAF9F6;
   padding: 15px 20px;
   font-size: 1.25rem;
 }
 
 .todays-menu-section .card-body {
   padding: 20px;
-  color: #333333; /* Maintained dark gray for text for consistency and readability */
+  color: #333333;
 }
 
+/* Logout button styling */
 .logout-button {
-  background-color: #808000; /* Olive green for a natural, earthy button */
-  color: #FFFFFF; /* White text for clarity and contrast */
+  background-color: #808000; /* Olive green for a natural feel */
+  color: #FFFFFF;
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
-  border-radius: 5px; /* Smooth edges for a friendly touch */
+  border-radius: 5px;
   cursor: pointer;
   margin-top: 20px;
 }
 
 .logout-button:hover {
-  background-color: #FA9D22; /* Burnt orange for hover state, adding warmth */
-  color: #0F172B; /* Dark blue text for contrast */
+  background-color: #FA9D22; /* Burnt orange on hover */
+  color: #0F172B;
 }
 
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .card-header, .logout-button {
-    font-size: 1rem; /* Adjusted for smaller screens for better readability */
+    font-size: 1rem;
   }
 
   .logout-button {
-    padding: 8px 16px; /* Slightly smaller padding for compact appearance */
+    padding: 8px 16px;
   }
 }
 
+/* Button hover effects for interactivity */
 .btn-primary:hover, .btn-danger:hover, .btn-info:hover {
-  opacity: 0.9; /* Subtle hover effect for interactive feedback */
+  opacity: 0.9;
 }

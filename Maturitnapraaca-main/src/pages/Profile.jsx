@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../pages/Styles/profile.css';
+import backgroundImage from '../images/Background.jpg'
 
 export default function Profile() {
     const navigate = useNavigate();
